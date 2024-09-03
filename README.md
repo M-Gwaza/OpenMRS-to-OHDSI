@@ -31,8 +31,7 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 ![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
 
-3. OpenMRS HIV Patients Data transformed and loaded into a Postgres Database in a Common Data Model format called OMOP CDM.
-4. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
+2. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
 https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
 
