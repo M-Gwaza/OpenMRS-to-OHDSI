@@ -33,7 +33,10 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 ![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
 
-4. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
+3. Data Quality Check
+   
+5. Visualization of Results
+   Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
 https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
 
