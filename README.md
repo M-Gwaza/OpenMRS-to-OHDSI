@@ -25,13 +25,15 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 ![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
 
 ## Results and Outcomes
-1.  ETL pipeline
+1. Exploratory Data Analysis
+   
+2.  ETL pipeline
    * Logical Mapping using OHDSI Tools White-Rabbit and Rabbit-in-a-Hat
    * ETL pipeline using Pentaho moving data from OpenMRS MySQL Database into OMOP CDM format in PostgreSQL Database.
 
 ![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
 
-2. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
+4. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
 https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
 
