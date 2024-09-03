@@ -20,14 +20,11 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 
 
-## Activities to be done
-- Exploratory data analysis of the data to identify what exactly to focus on
-- Development of an ETL pipeline to transform data into OMOP CDM
-- Data Quality Checks
-- Showcasing results
+## Activities done
 
+![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
 
-## Results
+## Results and Outcomes
 1.  ETL pipeline
    * Logical Mapping using OHDSI Tools White-Rabbit and Rabbit-in-a-Hat
    * ETL pipeline using Pentaho moving data from OpenMRS MySQL Database into OMOP CDM format in PostgreSQL Database.
