@@ -31,6 +31,9 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 1.  ETL pipeline
    * Logical Mapping using OHDSI Tools White-Rabbit and Rabbit-in-a-Hat
    * ETL pipeline using Pentaho moving data from OpenMRS MySQL Database into OMOP CDM format in PostgreSQL Database.
+
+![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
+
 3. OpenMRS HIV Patients Data transformed and loaded into a Postgres Database in a Common Data Model format called OMOP CDM.
 4. Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
