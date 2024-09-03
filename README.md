@@ -1,6 +1,15 @@
 # Data Harmonization
 Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Patient-Level Insights
 
+| Destination Field | Source field | Logic | Comment field |
+| --- | --- | --- | --- |
+| observation_period_id |  |  |  |
+| person_id |  |  |  |
+| observation_period_start_date |  |  |  |
+| observation_period_end_date |  |  |  |
+| period_type_concept_id |  |  |  |
+
+
 * **Data source** : [OpenMRS Demo data]( https://openmrs.atlassian.net/wiki/spaces/RES/pages/26273323/Demo+Data "Chose large-demo-data-2-2-1.sql.gz")
 * **Tools used** : SQL in MySQL and PostgreSQL Databases ,Python ,Pentaho , [OHDSI Tools](https://www.ohdsi.org/software-tools/) (White-rabbit, Rabbit-in-a-Hat, ATLAS, Achilles, WebAPI, Athena, Data Quality Dashboard)
 
@@ -27,7 +36,11 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 Explanation
 
+Logical Mapping of Tables
 
+![Logical Mappings](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Logical%20Mapping.png "Logical Mapping")
+
+Pentaho in action
 
 https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
