@@ -476,6 +476,64 @@ Reading from patient
 
 ![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20patient.png "patient")
 
+ii. ETL Pipeline in Pentaho PDI
+
+00 MASTER (job)
+
+01 Demographics (job)
+
+How to run the ETL
+
+Prerequisities
+1. Pentaho PDI
+2. MySQL Workbench and PostgreSQL PgAdmin or just DBeaver
+3. An already setup Database in MySQL with the Tables and Records from the SQL dump with a name called “demo_data_2_2_1_openmrs”
+
+
+What to do for the ETL to run
+
+* Create an empty database in Postgres with name called “omop_cdm”
+(this is a requirement otherwise the database connection in every transformation needs to be edited)
+* Download data 
+* Create a file repository in Pentaho for the files.
+* Open the file repository in Postgres.
+* Open a 00 Master transformation and go to Data Connection edit to change the database connections. 
+	* mysql-source: For the MySQL tables and records input
+	* postgres-output: For the results to be written in Postgres
+* Then finally run the 00 Master transformation.
+
+The transformation explanation
+
+01 Care Site (transformation)
+
+Picture
+
+Table
+
+02 Provider (transformation)
+
+Picture
+
+Table
+
+03 Location (transformation)
+
+Picture
+
+Table
+
+04 Person (transformation)
+
+Picture
+
+Table
+
+05 Observation Period (transformation)
+
+Picture
+
+Table
+
 ### 4. Data Quality Check
    
 ### 5. Visualization of Results
