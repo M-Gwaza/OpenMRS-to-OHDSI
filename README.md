@@ -435,8 +435,46 @@ group by p.gender
 
 ### 3.  ETL pipeline
 
+i. Logical Mapping using Rabbit-In-A-Hat
+Explanation
 
+#### Source Data Mapping Approach to CDMV5.4
 
+![All tables](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/all_tables.png "All tables")
+
+#### Table name: person
+Reading from person
+
+![person](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/person.png "Person")
+
+Reading from location
+
+![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20location.png "Location")
+
+Reading from person_address
+
+ ![person_address](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Person Address")
+
+#### Table name: location
+Reading from person_address
+
+![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Location")
+
+#### Table name: care_site
+Reading from location
+
+![care_site](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20location%20-%20care_site.png "care_site")
+
+#### Table name: provider
+
+#### Table name: observation_period
+Reading from obs
+
+![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20obs.png "obs")
+
+Reading from patient
+
+![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20patient.png "patient")
 
 ### 4. Data Quality Check
    
