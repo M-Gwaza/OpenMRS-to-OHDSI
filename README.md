@@ -543,9 +543,33 @@ Table
 Table
 
 ### 4. Data Quality Check
+
+Explanation
+
+Scripts
    
 ### 5. Visualization of Results
    Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
+
+
+Explanation about ATLAS
+
+Focus on Data Sources - Dashboard
+
+Select a Report
+
+Dashboard
+
+Data Destiny
+
+Person
+
+Observation Period
+
+Death
+
+Other Reports Explanation
+
 
 
 
