@@ -47,11 +47,31 @@ https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
 
 
-## All the steps done in Detail
+## All the steps done in detail
 
-1. Exploratory Data Analysis
+### 1. Setting Up
 
-### The SQL queres are used to understand Demographics data for Patients in OpenMRS to be used for the project
+#### Prerequisites
+* [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+* [Pentaho PDI](https://pentaho.com/pentaho-community-edition/)
+* The data schema structure and values as an [SQL dump](https://openmrs.atlassian.net/wiki/spaces/RES/pages/26273323/Demo+Data)
+
+#### Steps to set up the Data schema model
+* Visit the data schema structure and values link to download the preferred SQL dump which is 2.2.1 as it has a lot of data about 5,000 patients and 500,000 observations
+[OpenMRS Demo data](https://openmrs.atlassian.net/wiki/download/attachments/26273323/large-demo-data-2-2-1.sql.gz?api=v2) 
+
+Note: Malawi uses OpenMRS version 1.7.0 but the demo data has a small dataset
+
+Create a schema and use query editor to input the SQL Demo dump data
+	For instance:
+```sql 
+CREATE SCHEMA demo_data_2_2_1_openmrs ; 
+```
+
+  
+### 2. Exploratory Data Analysis
+
+#### The SQL queres are used to understand Demographics data for Patients in OpenMRS to be used for the project
 
 > Number of People in OpenMRS
 
@@ -413,14 +433,14 @@ group by p.gender
  
 
 
-2.  ETL pipeline
+### 3.  ETL pipeline
 
 
 
 
-3. Data Quality Check
+### 4. Data Quality Check
    
-5. Visualization of Results
+### 5. Visualization of Results
    Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
 
