@@ -478,10 +478,6 @@ Reading from patient
 
 ii. ETL Pipeline in Pentaho PDI
 
-00 MASTER (job)
-
-01 Demographics (job)
-
 How to run the ETL
 
 Prerequisities
@@ -504,33 +500,45 @@ What to do for the ETL to run
 
 The transformation explanation
 
+00 MASTER (job)
+
+![master](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/master.png "master")
+
+Table
+
+01 Demographics (job)
+
+![demographics](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/demographics.png "demographics")
+
+Table
+
 01 Care Site (transformation)
 
-Picture
+![care_site](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/care_site.png "care_site")
 
 Table
 
 02 Provider (transformation)
 
-Picture
+![provider](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/provider.png "provider")
 
 Table
 
 03 Location (transformation)
 
-Picture
+![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/location.png "location")
 
 Table
 
 04 Person (transformation)
 
-Picture
+![person](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/person.png "person")
 
 Table
 
 05 Observation Period (transformation)
 
-Picture
+![observation_period](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/observation_period.png "observation_period")
 
 Table
 
