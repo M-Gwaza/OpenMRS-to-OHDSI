@@ -1,15 +1,6 @@
 # Data Harmonization
 Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Patient-Level Insights
 
-| Destination Field | Source field | Logic | Comment field |
-| --- | --- | --- | --- |
-| observation_period_id |  |  |  |
-| person_id |  |  |  |
-| observation_period_start_date |  |  |  |
-| observation_period_end_date |  |  |  |
-| period_type_concept_id |  |  |  |
-
-
 * **Data source** : [OpenMRS Demo data]( https://openmrs.atlassian.net/wiki/spaces/RES/pages/26273323/Demo+Data "Chose large-demo-data-2-2-1.sql.gz")
 * **Tools used** : SQL in MySQL and PostgreSQL Databases ,Python ,Pentaho , [OHDSI Tools](https://www.ohdsi.org/software-tools/) (White-rabbit, Rabbit-in-a-Hat, ATLAS, Achilles, WebAPI, Athena, Data Quality Dashboard)
 
@@ -27,6 +18,11 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 4. How will the data be checked to ensure that the destination data matches the source?
 5. Finally how will the results be prepared ready for different stakeholders ?
 
+## Activities done
+
+![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
+
+
 ## Results and Outcomes
 1. ETL Pipeline
    * Logical Mapping using OHDSI Tools White-Rabbit and Rabbit-in-a-Hat
@@ -34,13 +30,13 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 ![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
 
-Explanation
+Explanation of the diagram
 
-Logical Mapping of Tables
+   i. Logical Mapping of Tables
 
 ![Logical Mappings](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Logical%20Mapping.png "Logical Mapping")
 
-Pentaho in action
+   ii. Pentaho in action
 
 https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
@@ -50,60 +46,105 @@ https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
 https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
 
-## Activities done
 
-![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
+## All the steps done in Detail
 
 1. Exploratory Data Analysis
 
+### The SQL queres are used to understand Demographics data for Patients in OpenMRS to be used for the project
+
+> Number of People in OpenMRS
+
 ```sql
--/* The SQL queres are used to understand Demographics data for Patients in OpenMRS to be used for the project
- * 
- * 
- */
-
--- Number of People in OpenMRS
--- Count : 5,286
 select count(*) as 'Number of People' from person p where voided = 0
+```
 
--- What about Number of Patients
--- Count : 5,284
+| Number of People | 
+| --- |
+| 5286 |
+
+
+> What about Number of Patients
+
+```sql
 -- Comment: Only 2 are not Patients
 select count(*) as 'Number of Patients' from patient p where voided = 0
+```
 
--- Finding People who are not Patients
--- The People are of `person_id` 1 and 9,347
-select *
+| Number of People | 
+| --- |
+| 5284 |
+
+
+
+> Finding People who are not Patients
+
+```sql
+select person_id 
 from person
 where person_id NOT IN (
     select patient_id 
     from patient 
 ) and voided = 0;
+```
 
--- Seeing Patient programs available
--- `HIV Program` with program_id 3 , `TB Program` with program_id 4
+| person_id | 
+| --- |
+| 1 |
+| 9347 |
+
+
+> Seeing Patient programs available
+
+```sql
 select distinct pp.program_id, p.name as 'program name'
 from patient_program pp join program p on pp.program_id = p.program_id 
 where pp.voided = 0 and p.retired = 0
+```
+
+| program_id | program name |
+| --- | --- |
+| 3 | HIV Program |
+| 4 | TB Program |
 
 
--- What is the Patients Count per Program
--- HIV Program - 3,100
--- TB Program - 821
+> What is the Patients Count per Program
+
+```sql
 select distinct p2.name as program, count(distinct p.patient_id) as 'patient count'
 from patient p 
 join patient_program pp on p.patient_id = pp.patient_id 
 join program p2 on pp.program_id = p2.program_id 
 where p.voided = 0 and pp.voided = 0 and p2.retired = 0
 group by p2.name
+```
 
--- All Locations in OpenMRS
--- Have "Wishard Hospital" of location_id 2, "Mosoriot Hospital" of 3, "Chulaimbo" of 4, and "Unknown Location"(s)
-select * from location l where retired = 0
+| program | patient count |
+| --- | --- |
+| HIV Program | 3100 |
+| TB Program | 821 |
 
--- Patients Count per Location where Patient_program is "HIV Program"
--- Wishard Hospital : 3,098
--- Unknown Location : 1
+
+
+> All Locations in OpenMRS
+
+```sql
+select location_id, name from location l where retired = 0 limit 4
+```
+
+| location_id | name |
+| --- | --- |
+| 1 | Unknown Location |
+| 2 | Wishard Hospital |
+| 3 | Mosoriot Hospital |
+| 4 | Chulaimbo |
+
+Comment : location_id 5-19 is "Unknown Location (with a number)"
+
+
+> Patients Count per Location where Patient_program is "HIV Program"
+
+```sql
 select distinct l.name, count(distinct p.person_id) as 'patient count'
 from person p
 join patient p2 on p.person_id = p2.patient_id
@@ -114,10 +155,18 @@ join program p3 on p3.program_id = pp.program_id
 where p.voided = 0 and p3.name = 'HIV PROGRAM' and p2.voided = 0 
 and pi.voided = 0 and l.retired is not null and pp.voided = 0 and p3.retired = 0
 group by name
+```
+
+| name | patient count |
+| --- | --- |
+| Unknown Location | 1 |
+| Wishard Hospital | 3098 |
 
 
--- Patient Count within "HIV Program" from "Wishard Hospital" with Obs
--- 3, 097
+
+> Patient Count within "HIV Program" from "Wishard Hospital" with Obs
+
+```sql
 select count(distinct p.person_id) as 'Patients with obs'
 from person p
 join patient p2 on p.person_id = p2.patient_id
@@ -128,11 +177,18 @@ join program p3 on p3.program_id = pp.program_id
 join obs o on p.person_id = o.person_id 
 where p.voided = 0 and p3.name = 'HIV PROGRAM' and p2.voided = 0 and l.name = 'Wishard Hospital'
 and pi.voided = 0 and l.retired is not null and o.voided = 0 and pp.voided = 0 and p3.retired = 0
+```
 
--- Patient Count within "HIV Program" from "Wishard Hospital" without Obs
--- 0
--- Explanation: The Obs without a Patient is voided
-select  p.*
+| Patients with obs | 
+| --- |
+| 3097 |
+
+
+
+> Patient Count within "HIV Program" from "Wishard Hospital" without Obs
+
+```sql
+select  count(p.person_id) as 'Patients without obs'
 from person p
 join patient p2 on p.person_id = p2.patient_id
 join patient_identifier pi on p.person_id = pi.patient_id 
@@ -151,17 +207,18 @@ where p.voided = 0
   and p3.retired = 0
   and o.voided = 0
  ;
- 
- 
--- Obs datetime distribution: min, q1, median, q3, maximum
--- min		: 1899
--- q1  		: 2006
--- median	: 2006
--- q3		: 2006
--- max		: 5006
--- Comment	: The Datetime 5006 is wrong whereas datetime 1899 seems like a long time ago
--- This needs to be investigated further
- 
+```
+
+| Patients with obs | 
+| --- |
+| 3097 | 
+
+Explanation: The Obs without a Patient is voided
+
+
+> Obs datetime distribution: min, q1, median, q3, maximum
+
+```sql
 with ordered_obs as (
     select 
         o.obs_datetime,
@@ -178,17 +235,24 @@ with ordered_obs as (
 	and pi.voided = 0 and l.retired is not null and o.voided = 0 and pp.voided = 0 and p3.retired = 0
 )
 select 
-    min(obs_datetime) as min,
-    max(case when rn = floor(0.25 * total_count) then obs_datetime end) as q1,
-    max(case when rn = floor(0.5 * total_count) then obs_datetime end) as median,
-    max(case when rn = floor(0.75 * total_count) then obs_datetime end) as q3,
-    max(obs_datetime) as max
+    min(DATE(obs_datetime)) as min,
+    max(case when rn = floor(0.25 * total_count) then DATE(obs_datetime) end) as q1,
+    max(case when rn = floor(0.5 * total_count) then DATE(obs_datetime) end) as median,
+    max(case when rn = floor(0.75 * total_count) then DATE(obs_datetime) end) as q3,
+    max(DATE(obs_datetime)) as max
 from ordered_obs;
+```
 
--- Checking distinct years in obs_datetime of obs
--- The years are 1899, 2004, 2005, 2006, 5006
--- The right ones here look like 2004, 2005 and 2006 and are the only ones to be considered
+| min | q1 | median | q3 | max |
+| --- | --- | --- | -- | --- |
+| 1899-12-30 | 2006-03-30 | 2006-04-27 | 2006-05-23 | 5006-03-17 |
 
+Comment	: The Datetime 5006 is wrong whereas datetime 1899 seems like a long time ago. This needs to be investigated further.
+
+
+> Checking distinct years in obs_datetime of obs
+
+```sql
 select distinct year(obs_datetime) as year
 from person p
 join patient p2 on p.person_id = p2.patient_id
@@ -200,14 +264,20 @@ join obs o on p.person_id = o.person_id
 where p.voided = 0 and p3.name = 'HIV PROGRAM' and p2.voided = 0 and l.name = 'Wishard Hospital'
 and pi.voided = 0 and l.retired is not null and o.voided = 0 and pp.voided = 0 and p3.retired = 0
 order by year(obs_datetime);
+```
 
+| Year | 
+| --- |
+| 1899 |
+| 2004 |
+| 2005 |
+| 5006 |
 
--- Also checking Obs total count based on the Years extracted from obs_datetime
--- 'Obs Count for Year 1899' : 3
--- 'Obs Count for Year 2004' : 3
--- 'Obs Count for Year 2005' : 198
--- 'Obs Count for Year 2006' : 282,266
--- 'Obs Count for Year 5006' : 1
+Comment: The right ones here look like 2004, 2005 and 2006 and are the only ones to be considered
+
+> Also checking Obs total count based on the Years extracted from obs_datetime
+
+```sql
 select
     count(case when year(o.obs_datetime) = 1899 then 1 end) as 'Obs Count for Year 1899',
     count(case when year(o.obs_datetime) = 2004 then 1 end) as 'Obs Count for Year 2004',
@@ -223,24 +293,27 @@ join program p3 on p3.program_id = pp.program_id
 join obs o on p.person_id = o.person_id 
 where p.voided = 0 and p3.name = 'HIV PROGRAM' and p2.voided = 0 and l.name = 'Wishard Hospital'
 and pi.voided = 0 and l.retired is not null and o.voided = 0 and pp.voided = 0 and p3.retired = 0
+```
 
--- NOTE: The wrong values cannot be deleted as this is clinical data. The best way of dealing with such values is by changing the entry to voided
+| Obs Count for Year 1899 | Obs Count for Year 2004 | Obs Count for Year 2005 | Obs Count for Year 2006 | Obs Count for Year 5006 |
+| --- | --- | --- | -- | --- |
+| 3 | 3 | 198 | 282266| 1 |
+
+
+> NOTE: The wrong values cannot be deleted as this is clinical data. The best way of dealing with such values is by changing the entry to voided
+
+```sql
 /* The syntax for the change is
  * 
  * UPDATE obs set voided = 1 on obs_datetime < 2004 or obs_datetime > 2006;
  * 
  */
+```
 
+> Now Patients birthdate has to be checked and compared to Obs dates if they match
 
--- Now Patients birthdate has to be checked and compared to Obs dates if they match
+```sql
 -- Patients birthdate
--- min		: 1950
--- q1  		: 1965
--- median	: 1972
--- q3		: 1980
--- max		: 2003
--- Comment	: Meaning that all obs with datetime < 1950 are wrong because the Patients were not born yet
-
 with ordered_obs as (
     select 
         p.birthdate,
@@ -263,15 +336,18 @@ select
     max(case when rn = floor(0.75 * total_count) then year(birthdate) end) as q3,
     max(year(birthdate)) as max
 from ordered_obs;
+```
 
--- Person's Birthdate total count based on the Years extracted from Birthdate
--- birth_year < 1960				: 241
--- birth_year between 1960 and 1969	: 1,072
--- birth_year between 1970 and 1979	: 1,000
--- birth_year between 1980 and 1989	: 281
--- birth_year > 1990				: 472
+| min | q1 | median | q3 | max |
+| --- | --- | --- | -- | --- |
+| 1950 | 1965| 1972 | 1980 | 2003|
+
+Comment	: Meaning that all obs with datetime < 1950 are wrong because the Patients were not born yet. Also, the birth years for the Patients look a bit evenly distributed
+
+> Person's Birthdate total count based on the Years extracted from Birthdate
 
 
+```sql
 -- Subquery to get distinct persons and their birth years
 with distinct_persons as (
     select distinct
@@ -295,9 +371,17 @@ select
     count(case when birth_year between 1980 and 1989 then 1 end) as 'Birthdate for Year 1980-1989',
     count(case when birth_year > 1990 then 1 end) as 'Birthdate for Year > 1990'
 from distinct_persons;
+```
 
--- Patients Age distribution
-select distinct p.gender, count(distinct p.person_id) 
+| Birthdate for Year < 1960 | Birthdate for Year 1960-1969| Birthdate for year 1970-1979 | Birthdate for year 1980-1989 | Birthdate for year > 1990 |
+| --- | --- | --- | -- | --- |
+| 241 | 1072| 1000 | 281 | 472|
+
+
+> Patients Age distribution
+
+```sql
+select distinct p.gender, count(distinct p.person_id)  as 'Patients Count'
 from person p
 join patient p2 on p.person_id = p2.patient_id
 join patient_identifier pi on p.person_id = pi.patient_id 
@@ -308,11 +392,26 @@ join obs o on p.person_id = o.person_id
 where p.voided = 0 and p3.name = 'HIV PROGRAM' and p2.voided = 0 and l.name = 'Wishard Hospital'
 and pi.voided = 0 and l.retired is not null and o.voided = 0 and pp.voided = 0 and p3.retired = 0
 group by p.gender 
-
--- Counting Dead Patients
- -- 0 Patients Dead
- select * from person p join patient p2 on p.person_id = p2.patient_id where p.dead = 1
 ```
+
+| gender | Patients Count |
+| --- | --- |
+| F | 2048 |
+| M | 1049 |
+
+
+> Counting Dead Patients
+
+```sql
+ select count(*) as 'Number of Patients that died' from person p join patient p2 on p.person_id = p2.patient_id where p.dead = 1
+``` 
+
+| Number of Patients that died | 
+| --- |
+| 0 |
+ 
+ 
+
 
 2.  ETL pipeline
 
