@@ -597,7 +597,7 @@ What to do for the ETL to run
 
 | Step Name | What happens |
 | --- | --- |
-| Observation_period input | This connects to MySQL OpenMRS database and gets Observations for "Wishard Hospital" Patients part of "HIV Program" |
+| Observation_query input | This connects to MySQL OpenMRS database and gets Observations for "Wishard Hospital" Patients part of "HIV Program" |
 | Sort rows | Sorts the values from Person input using person_id before merging |
 | Location [staging] input | This connects to Postgres Staging Care_site database and gets the details |
 | Sort rows 2 | Sorts the values from Person input using person_id before merging |
