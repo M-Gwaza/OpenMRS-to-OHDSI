@@ -575,6 +575,11 @@ Population by Gender
 
 ![Population by Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_PopulationbyGender.png "Population by Gender")
 
+![Age at First Observation](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_AgeatFirstObservation.png "Age at First Observation")
+
+![Cumulative Observation](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_CumulativeObservation.png "Cumulative Observation")
+
+
 Person
 
 Observation Period
