@@ -557,7 +557,7 @@ Focus on Data Sources - Dashboard
 
 Select a Report
 
-Dashboard
+#### Dashboard
 
 CDM Summary 
 
@@ -565,21 +565,19 @@ CDM Summary
 | --- | --- |
 | cdm | omop_cdm5_4 |
 
-Population by Gender
-
 ![Population by Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_PopulationbyGender.png "Population by Gender")
 
 ![Age at First Observation](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_AgeatFirstObservation.png "Age at First Observation")
 
 ![Cumulative Observation](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_CumulativeObservation.png "Cumulative Observation")
 
-Data Destiny
+#### Data Destiny
 
 ![Data Density](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/DataDensity_TotalRows.png "Data Density")
 
-Person
+#### Person
 
-Cohort definition
+##### Cohort definition
 
 * Explain
 
@@ -589,13 +587,13 @@ Cohort definition
 
 ![Person Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Person_Gender.png "Person Gender")
 
-Observation Period
+#### Observation Period
 
 ![Observation Period Age by Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/ObservationPeriod_AgebyGender.png "Observation Period Age by Gender")
 
 ![Observation Period Observation Length](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/ObservationPeriod_ObservationLength.png "Observation Period Observation Length")
 
-Other Reports Explanation
+#### Other Reports Explanation
 
 * Explanation
 
