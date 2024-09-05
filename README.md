@@ -44,8 +44,7 @@ https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
 2. ATLAS Dashboards
 
-https://github.com/user-attachments/assets/9937a4e6-ccab-42bd-a1a5-8456b1e9efc7
-
+https://github.com/user-attachments/assets/2b2980da-6f3e-440f-8368-a0bcdbce909b
 
 ## All the steps done in detail
 
