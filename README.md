@@ -609,9 +609,85 @@ What to do for the ETL to run
 
 ### 4. Data Quality Check
 
-Explanation
+#### The SQL queres are used to check the Quality of the data in comparison with the Source data
 
-Scripts
+> Number of People in OMOP CDM
+
+```sql
+select count(*) as 'Number of People' from person p 
+```
+
+| Number of People | 
+| --- |
+| 3097 |
+
+> Number of People where year_of_birth < 1950 or > 2003
+
+```sql
+select count(*) as 'Number of People' from person p where year_of_birth < 1950 or year_of_birth > 2003
+```
+
+| Number of People where year_of_birth < 1950 or > 2003 | 
+| --- |
+| 0 |
+
+> Patients without location
+
+```sql
+select count(person.*) as "Patients without location"
+from person
+left join "location" 
+on person.location_id = location.location_id 
+where location.location_id is null
+```
+
+| Patients without location | 
+| --- |
+| 0 |
+
+> Patients without care site
+
+```sql
+select count(person.*) as "Patients without care site"
+from person
+left join care_site 
+on person.care_site_id = care_site.care_site_id 
+where care_site.care_site_id is null
+```
+
+| Patients without care site| 
+| --- |
+| 0 |
+
+> Number of Patients without observation period
+
+```sql
+select count(person.*) as "Number of Patients without observation_period"
+from person
+left join observation_period 
+on person.person_id = observation_period.person_id
+where observation_period.person_id is null
+```
+
+| Number of Patients without observation period | 
+| --- |
+| 0 |
+
+> Number of Patients where observation period dates < 2004 or > 2006
+
+```sql
+select count(person.*) as "Number of Patients where observation period dates < 2004 or > 2006"
+from person
+join observation_period 
+on person.person_id = observation_period.person_id
+where observation_period.observation_period_start_date < '2004-01-01' or observation_period.observation_period_start_date > '2006-12-31'
+or observation_period.observation_period_end_date < '2004-01-01' or observation_period.observation_period_end_date > '2006-12-31'
+
+```
+
+| Number of Patients where observation period dates < 2004 or > 2006 | 
+| --- |
+| 0 |
    
 ### 5. Visualization of Results
    Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
