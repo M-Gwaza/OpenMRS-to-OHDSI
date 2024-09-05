@@ -579,6 +579,12 @@ Data Destiny
 
 Person
 
+Cohort definition
+
+* Explain
+
+![Cohort definition](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/cohort_definition.png "Cohort Definition")
+
 ![Person Year of Birth](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Person_YearofBirth.png "Person Year of Birth")
 
 ![Person Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Person_Gender.png "Person Gender")
@@ -589,9 +595,9 @@ Observation Period
 
 ![Observation Period Observation Length](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/ObservationPeriod_ObservationLength.png "Observation Period Observation Length")
 
-Death
-
 Other Reports Explanation
+
+* Explanation
 
 
 
