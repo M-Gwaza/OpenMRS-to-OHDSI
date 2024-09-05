@@ -503,7 +503,15 @@ What to do for the ETL to run
 
 ![master](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/master.png "master")
 
-Table
+Explanation
+
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
+| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Success | The final step of the ETL after a successful run|
 
 01 Demographics (job)
 
