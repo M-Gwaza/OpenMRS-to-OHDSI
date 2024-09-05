@@ -503,8 +503,6 @@ What to do for the ETL to run
 
 ![master](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/master.png "master")
 
-Explanation
-
 | Step Name | What happens |
 | --- | --- |
 | Start | Begins the ETL execution |
@@ -517,37 +515,76 @@ Explanation
 
 ![demographics](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/demographics.png "demographics")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| *The table names* | Goes to a specific transformation of that table to execute and move to the next table |
+| Success | The final step of the ETL after a successful run|
 
 01 Care Site (transformation)
 
 ![care_site](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/care_site.png "care_site")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Location input | Begins the ETL execution |
+| Add constants | 'care_site_id' as 1 since we only getting from "Wishard Hospital" and 'place_of_service_concept_id' of 9202 as “Outpatient Visit” assuming all the patients are outpatients|
+| Modified Javascript value | Creates Temporary tables to be used in the transformations for populating other tables|
+| Select Values| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Care_site output | The final step of the ETL after a successful run|
+| Select Values 3 | Begins the ETL execution |
+| Care_site [staging] output | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Add constants 2 | Creates Temporary tables to be used in the transformations for populating other tables|
+| Select Values 2 | Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Location output | The final step of the ETL after a successful run|
 
 02 Provider (transformation)
 
 ![provider](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/provider.png "provider")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
+| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Success | The final step of the ETL after a successful run|
 
 03 Location (transformation)
 
 ![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/location.png "location")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
+| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Success | The final step of the ETL after a successful run|
 
 04 Person (transformation)
 
 ![person](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/person.png "person")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
+| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Success | The final step of the ETL after a successful run|
 
 05 Observation Period (transformation)
 
 ![observation_period](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline%20Pentaho/observation_period.png "observation_period")
 
-Table
+| Step Name | What happens |
+| --- | --- |
+| Start | Begins the ETL execution |
+| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
+| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
+| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Success | The final step of the ETL after a successful run|
 
 ### 4. Data Quality Check
 
