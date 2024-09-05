@@ -484,7 +484,6 @@ Prerequisities
 2. MySQL Workbench and PostgreSQL PgAdmin or just DBeaver
 3. An already setup Database in MySQL with the Tables and Records from the SQL dump with a name called “demo_data_2_2_1_openmrs”
 
-
 What to do for the ETL to run
 
 * Create an empty database in Postgres with name called “omop_cdm”
@@ -508,7 +507,7 @@ What to do for the ETL to run
 | Start | Begins the ETL execution |
 | Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
 | Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
-| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
+| Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
 | Success | The final step of the ETL after a successful run|
 
 01 Demographics (job)
@@ -519,7 +518,7 @@ What to do for the ETL to run
 | --- | --- |
 | Start | Begins the ETL execution |
 | *The table names* | Goes to a specific transformation of that table to execute and move to the next table |
-| Success | The final step of the ETL after a successful run|
+| Success | The final step of the job after a successful run|
 
 01 Care Site (transformation)
 
@@ -534,7 +533,6 @@ What to do for the ETL to run
 | Care_site output | Loads final data to Postgres OMOP CDM Care_site table|
 | Select Values 3 | Selects necessary columns |
 | Care_site [staging] output |  Loads final data to Postgres Staging Care_site table |
-| Add constants 2 | Creates Temporary tables to be used in the transformations for populating other tables|
 | Select Values 2 | Selects necessary columns|
 | Location output | Loads final data to Postgres OMOP CDM Location table|
 
@@ -544,11 +542,16 @@ What to do for the ETL to run
 
 | Step Name | What happens |
 | --- | --- |
-| Start | Begins the ETL execution |
-| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
-| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
-| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
-| Success | The final step of the ETL after a successful run|
+| Generate rows | provider_name = Provider, specialty_concept_id and specialty_source_concept_id = 33003 "Meaning Provider", care_site_source_value = 2 "For Wishard Hospital" |
+| Sort rows | Sorts the values from generate rows using care_site_source_value before merging (it is important to be done in Pentaho) |
+| Care_site [staging] input | This connects to Postgres Staging Care_site database and gets the details |
+| Sort rows | Also sorts values from care_site [staging] input using care_site_source_value|
+| Merge join | Joins the Tables based on the id for "Wishard Hospital" in care_site_source_value|
+| Add sequence | Auto-increments the provider_id value starting from 1|
+| Select values 2 | Selects necessary columns |
+| Provider [staging] output | Loads final data to Postgres Staging Provider table|
+| Select values | Selects necessary columns |
+| Provider output | Loads final data to Postgres OMOP CDM Provider table |
 
 03 Location (transformation)
 
@@ -556,11 +559,14 @@ What to do for the ETL to run
 
 | Step Name | What happens |
 | --- | --- |
-| Start | Begins the ETL execution |
-| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
-| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
-| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
-| Success | The final step of the ETL after a successful run|
+| person_address_input | This connects to MySQL OpenMRS database and gets the person_address for "Wishard Hospital" Patients with an observation and part of "HIV Program" |
+| Modified Javascript value | Creates OMOP CDM tables in a schema using t |
+| Add sequence | Auto-increments the locaationid value starting from 1 |
+| Add constants | latitude and longitude as 0 as they cannot be left empty|
+| Select values |  Selects necessary columns |
+| Location output | Loads final data to Postgres OMOP CDM Location table |
+| Select values 2 | Selects necessary columns |
+| Location [staging] output | Loads final data to Postgres Staging Location table |
 
 04 Person (transformation)
 
@@ -568,11 +574,22 @@ What to do for the ETL to run
 
 | Step Name | What happens |
 | --- | --- |
-| Start | Begins the ETL execution |
-| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
-| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
-| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
-| Success | The final step of the ETL after a successful run|
+| Person input | This connects to MySQL OpenMRS database and gets "Wishard Hospital" Patients with an observation part of "HIV Program"  |
+| Sort rows | Sorts the values from Person input using person_address_id before merging |
+| Location [staging] input | This connects to Postgres Staging Care_site database and gets the details |
+| Sort rows 2 | Sorts the values from Person input using person_address_id before merging |
+| Merge join | Joins the Tables using person_address_id for Person input and Location [staging] input |
+| Sort rows 3 | Sorts the values using location_id |
+| Care_site [staging] input | This connects to Postgres Staging Care_site database and gets the details |
+| Sort rows 4 | Sorts the values using location_id |
+| Merge join | Joins the Tables using location_id |
+| Modified Javascript value | Birthdate creates year_of_birth, month_of_birth and day_of_birth, gender creates gender_source_value, gender_source_value and gender_concept_id|
+| Add constants | race_source_concept_id, ethnicity_source_concept_id, ethnicity_concept_id and race_concept_id get created with value 0 and provider_id with 1|
+| Add sequence |  Auto-increments the person_id value starting from 1 for deidentification purposes|
+| Select values |  Selects necessary columns |
+| Location output | Loads final data to Postgres OMOP CDM Person table |
+| Select values 2 | Selects necessary columns |
+| Location [staging] output | Loads final data to Postgres Person Location table |
 
 05 Observation Period (transformation)
 
@@ -580,11 +597,15 @@ What to do for the ETL to run
 
 | Step Name | What happens |
 | --- | --- |
-| Start | Begins the ETL execution |
-| Create OMOP CDM Tables | Creates OMOP CDM tables in a schema using the DDL queries from https://github.com/OHDSI/CommonDataModel/blob/main/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql |
-| Create Staging Tables | Creates Temporary tables to be used in the transformations for populating other tables|
-| 01 Demographics| Goes to the Demographics repository/ folder and runs the Demographics job for the other transformations to run|
-| Success | The final step of the ETL after a successful run|
+| Observation_period input | This connects to MySQL OpenMRS database and gets Observations for "Wishard Hospital" Patients part of "HIV Program" |
+| Sort rows | Sorts the values from Person input using person_id before merging |
+| Location [staging] input | This connects to Postgres Staging Care_site database and gets the details |
+| Sort rows 2 | Sorts the values from Person input using person_id before merging |
+| Merge join | Joins the Tables using person_id |
+| Add constants | period_type_concept_id with 32817 |
+| Add sequence | Auto-increments the observation_period_id value starting from 1 |
+| Select values |  Selects necessary columns |
+| Observation period output | Loads final data to Postgres OMOP CDM Observation_period table |
 
 ### 4. Data Quality Check
 
