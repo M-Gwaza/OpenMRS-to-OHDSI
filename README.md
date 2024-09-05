@@ -559,7 +559,21 @@ Select a Report
 
 Dashboard
 
+| program_id | program name |
+| --- | --- |
+| 3 | HIV Program |
+
 Data Destiny
+
+CDM Summary 
+
+| Number of persons | 3097 |
+| --- | --- |
+| cdm | omop_cdm5_4 |
+
+Population by Gender
+
+<img src="https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Dashboard_PopulationbyGender.png" width="666" height = "260" align="center">
 
 Person
 
