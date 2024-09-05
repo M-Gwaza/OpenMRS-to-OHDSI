@@ -582,6 +582,8 @@ Population by Gender
 
 Person
 
+![Data Density](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/DataDensity_TotalRows.png "Data Density")
+
 Observation Period
 
 Death
