@@ -2,7 +2,10 @@
 Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Patient-Level Insights
 
 * **Data source** : [OpenMRS Demo data]( https://openmrs.atlassian.net/wiki/spaces/RES/pages/26273323/Demo+Data "Chose large-demo-data-2-2-1.sql.gz")
-* **Tools used** : SQL in MySQL and PostgreSQL Databases, Pentaho, [OHDSI Tools](https://www.ohdsi.org/software-tools/) (White-rabbit, Rabbit-in-a-Hat, ATLAS, Achilles, WebAPI, Athena, Data Quality Dashboard)
+* **Tools used** :
+	* SQL in MySQL and PostgreSQL Databases scripting
+ 	* Pentaho PDI for data engineering - ETL Pipeline development
+ 	* [OHDSI Tools](https://www.ohdsi.org/software-tools/) (Rabbit-in-a-Hat - For Logical mapping presentation of OpenMRS tables to OMOP CDM Format tables on how the ETL pipeline will be created, ATLAS - For Visualizing patient-level analysis conducted on OpenMRS data in form of OMOP CDM)
 
 ## Introduction
 **OpenMRS**, an open-source electronic medical record system designed for resource-constrained environments, was developed collaboratively by a global community of developers, healthcare professionals, and organizations including Partners In Health and the Regenstrief Institute. It aims to enhance healthcare delivery by providing a customizable platform for managing patient health information. Effective for local data management, but lacks standardization for broader research and interoperability.
