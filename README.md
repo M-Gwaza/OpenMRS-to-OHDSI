@@ -701,14 +701,12 @@ or observation_period.observation_period_end_date < '2004-01-01' or observation_
 | 0 |
    
 ### 5. Visualization of Results
-   Patient-level analysis evidence generated in a dashboard format using an OHDSI tool called ATLAS.
 
+ATLAS is an open-source web-based platform developed by the Observational Health Data Sciences and Informatics (OHDSI) community. It provides tools for conducting observational healthcare research using standardized healthcare data in the OMOP Common Data Model (CDM). ATLAS allows users to define and analyze cohorts of patients, perform population-level estimation, prediction modeling, and conduct patient-level data analysis using intuitive, interactive tools.
 
-Explanation about ATLAS
+For ATLAS to work, firstly OHDSI Achilles and Webapi has to be run. **ACHILLES** is a tool that performs automated data quality checks and generates summary statistics for OMOP CDM databases, providing insights into data content and integrity. **WebAPI** is the backend service that powers ATLAS by handling database queries, cohort execution, and facilitating communication between the OMOP CDM and the front-end application.
 
-Focus on Data Sources - Dashboard
-
-Select a Report
+The reports ATLAS produces are below:
 
 #### Dashboard
 
