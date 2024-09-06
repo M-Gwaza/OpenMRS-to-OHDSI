@@ -617,7 +617,8 @@ What to do for the ETL to run
 > Number of People in OMOP CDM
 
 ```sql
-select count(*) as 'Number of People' from person p 
+select count(*) as 'Number of People'
+from person p 
 ```
 
 | Number of People | 
@@ -627,7 +628,9 @@ select count(*) as 'Number of People' from person p
 > Number of People where year_of_birth < 1950 or > 2003
 
 ```sql
-select count(*) as 'Number of People' from person p where year_of_birth < 1950 or year_of_birth > 2003
+select count(*) as 'Number of People'
+from person p
+where year_of_birth < 1950 or year_of_birth > 2003
 ```
 
 | Number of People where year_of_birth < 1950 or > 2003 | 
@@ -637,7 +640,7 @@ select count(*) as 'Number of People' from person p where year_of_birth < 1950 o
 > Patients without location
 
 ```sql
-select count(person.*) as "Patients without location"
+select count(person.*) as 'Patients without location'
 from person
 left join "location" 
 on person.location_id = location.location_id 
@@ -651,7 +654,7 @@ where location.location_id is null
 > Patients without care site
 
 ```sql
-select count(person.*) as "Patients without care site"
+select count(person.*) as 'Patients without care site'
 from person
 left join care_site 
 on person.care_site_id = care_site.care_site_id 
@@ -665,7 +668,7 @@ where care_site.care_site_id is null
 > Number of Patients without observation period
 
 ```sql
-select count(person.*) as "Number of Patients without observation_period"
+select count(person.*) as 'Number of Patients without observation_period'
 from person
 left join observation_period 
 on person.person_id = observation_period.person_id
@@ -679,7 +682,7 @@ where observation_period.person_id is null
 > Number of Patients where observation period dates < 2004 or > 2006
 
 ```sql
-select count(person.*) as "Number of Patients where observation period dates < 2004 or > 2006"
+select count(person.*) as 'Number of Patients where observation period dates < 2004 or > 2006'
 from person
 join observation_period 
 on person.person_id = observation_period.person_id
