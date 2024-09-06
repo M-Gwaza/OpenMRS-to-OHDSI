@@ -37,7 +37,7 @@ The Extract Transform Load Pipeline has 3 parts;
      
      	The source data is OpenMRS in MySQL. The data gets uploaded in an OHDSI tool called WhiteRabbit to produce a report with summaries about the database.
      
-   * ii. Transorm
+   * ii. Transform
      
      	The summaries document gets to OHDSI tool Rabbit-in-a-Hat where a Logical Mapping is done to showcase which OpenMRS tables and column get loaded to the OMOP CDM format. A Mapping document then gets created. Athena is another OHDSI tool that gets used to look for Concepts for the column field values. *Note: A "concept" represents health information obtained from electronic health records (EHR) or participant provided information (PPI) sources, which are derived from surveys.*
 
