@@ -712,6 +712,8 @@ Select a Report
 
 #### Dashboard
 
+Overview: The dashboard provides a summary of key metrics from the data source, giving users a quick overview of the most important characteristics of the patient population and data quality.
+
 CDM Summary 
 
 | Number of persons | 3097 |
@@ -726,15 +728,17 @@ CDM Summary
 
 #### Data Destiny
 
+Overview: The Data Density report visualizes the availability of data across time for various healthcare domains (e.g., conditions, drug exposures, procedures, measurements). Some reports not generated since few data was loaded in OMOP CDM - for demographics only.
+
 ![Data Density](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/DataDensity_TotalRows.png "Data Density")
 
 #### Person
 
+Overview: Displays demographics of patients in the data source, including age, gender, race, and ethnicity. And a person report in ATLAS usually has Cohorts defined. 
+
 ##### Cohort definition
 
-* Explain
-
-![Cohort definition](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/cohort_definition.png "Cohort Definition")
+   * A cohort in ATLAS refers to a group of patients who meet a set of criteria defined by the user. The Cohort Definition tool in ATLAS allows users to create and define these groups based on specific characteristics, conditions, treatments, or other healthcare data. This is a critical feature for performing patient-level analysis, enabling researchers and healthcare professionals to study specific populations within the overall dataset. 
 
 ![Person Year of Birth](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/Person_YearofBirth.png "Person Year of Birth")
 
@@ -742,13 +746,15 @@ CDM Summary
 
 #### Observation Period
 
+Overview: The Observation Period report focuses on the time span during which data is collected for each patient in the dataset. It represents the duration when the healthcare system "observes" a patient, meaning the period when the healthcare system can capture relevant healthcare information for that person. Each patient can have one or more observation periods, depending on their interactions with the healthcare system.
+
 ![Observation Period Age by Gender](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/ObservationPeriod_AgebyGender.png "Observation Period Age by Gender")
 
 ![Observation Period Observation Length](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ATLAS%20Images%20results/ObservationPeriod_ObservationLength.png "Observation Period Observation Length")
 
 #### Other Reports Explanation
 
-* Explanation
+* Other reports like Death or Visit have no data since the OMOP CDM tables have no data.
 
 
 
