@@ -27,25 +27,38 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 
 ## Results and Outcomes
-1. ETL Pipeline
-   * Logical Mapping using OHDSI Tools White-Rabbit and Rabbit-in-a-Hat
-   * ETL pipeline using Pentaho moving data from OpenMRS MySQL Database into OMOP CDM format in PostgreSQL Database.
+
+### 1. ETL Pipeline
 
 ![ETL Pipeline](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/ETL%20pipeline.png "ETL Pipeline")
 
-Explanation of the diagram
+The Extract Transform Load Pipeline has 3 parts;
+   * i. Extract
+     
+     	The source data is OpenMRS in MySQL. The data gets uploaded in an OHDSI tool called WhiteRabbit to produce a report with summaries about the database.
+     
+   * ii. Transorm
+     
+     	The summaries document gets to OHDSI tool Rabbit-in-a-Hat where a Logical Mapping is done to showcase which OpenMRS tables and column get loaded to the OMOP CDM format. A Mapping document then gets created. Athena is another OHDSI tool that gets used to look for Concepts for the column field values. *Note: A "concept" represents health information obtained from electronic health records (EHR) or participant provided information (PPI) sources, which are derived from surveys.*
 
-   i. Logical Mapping of Tables
+        Pentaho - ETL Implementation :   At this point a pipeline gets generated to extract and transform data from OpenMRS to finally load the data to OMOP CDM.
+      
+   * iii. Load
+     
+     	The summaries document gets to OHDSI tool Rabbit-in-a-Hat where a Logical Mapping is done to showcase which OpenMRS tables and column get loaded to the OMOP CDM format in PostgreSQL database.   
+
+
+#### Key Points of the diagram
+
+   i. Logical Mapping of Tables - using Rabbit-in-a-Hat
 
 ![Logical Mappings](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Logical%20Mapping.png "Logical Mapping")
 
-   ii. Pentaho in action
+   ii. Actual ETL pipeline - using Pentaho 
 
 https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
-
-
-2. ATLAS Dashboards
+### 2. ATLAS Dashboards
 
 https://github.com/user-attachments/assets/2b2980da-6f3e-440f-8368-a0bcdbce909b
 
