@@ -1,0 +1,1070 @@
+<job>
+  <name>00 MASTER</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <directory>/</directory>
+  <created_user>-</created_user>
+  <created_date>2024/04/16 16:00:57.523</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2024/09/08 22:14:59.534</modified_date>
+  <parameters>
+    </parameters>
+  <connection>
+    <name>postgres-output</name>
+    <server>127.0.0.1</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>omop_cdm</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <slaveservers>
+    </slaveservers>
+  <job-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>STATUS</id>
+      <enabled>Y</enabled>
+      <name>STATUS</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>STARTDATE</id>
+      <enabled>Y</enabled>
+      <name>STARTDATE</name>
+    </field>
+    <field>
+      <id>ENDDATE</id>
+      <enabled>Y</enabled>
+      <name>ENDDATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>DEPDATE</id>
+      <enabled>Y</enabled>
+      <name>DEPDATE</name>
+    </field>
+    <field>
+      <id>REPLAYDATE</id>
+      <enabled>Y</enabled>
+      <name>REPLAYDATE</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>Y</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>EXECUTING_SERVER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_SERVER</name>
+    </field>
+    <field>
+      <id>EXECUTING_USER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_USER</name>
+    </field>
+    <field>
+      <id>START_JOB_ENTRY</id>
+      <enabled>N</enabled>
+      <name>START_JOB_ENTRY</name>
+    </field>
+    <field>
+      <id>CLIENT</id>
+      <enabled>N</enabled>
+      <name>CLIENT</name>
+    </field>
+  </job-log-table>
+  <jobentry-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>TRANSNAME</name>
+    </field>
+    <field>
+      <id>JOBENTRYNAME</id>
+      <enabled>Y</enabled>
+      <name>STEPNAME</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>RESULT</id>
+      <enabled>Y</enabled>
+      <name>RESULT</name>
+    </field>
+    <field>
+      <id>NR_RESULT_ROWS</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_ROWS</name>
+    </field>
+    <field>
+      <id>NR_RESULT_FILES</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_FILES</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>N</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>COPY_NR</id>
+      <enabled>N</enabled>
+      <name>COPY_NR</name>
+    </field>
+  </jobentry-log-table>
+  <channel-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>LOGGING_OBJECT_TYPE</id>
+      <enabled>Y</enabled>
+      <name>LOGGING_OBJECT_TYPE</name>
+    </field>
+    <field>
+      <id>OBJECT_NAME</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_NAME</name>
+    </field>
+    <field>
+      <id>OBJECT_COPY</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_COPY</name>
+    </field>
+    <field>
+      <id>REPOSITORY_DIRECTORY</id>
+      <enabled>Y</enabled>
+      <name>REPOSITORY_DIRECTORY</name>
+    </field>
+    <field>
+      <id>FILENAME</id>
+      <enabled>Y</enabled>
+      <name>FILENAME</name>
+    </field>
+    <field>
+      <id>OBJECT_ID</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_ID</name>
+    </field>
+    <field>
+      <id>OBJECT_REVISION</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_REVISION</name>
+    </field>
+    <field>
+      <id>PARENT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>PARENT_CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>ROOT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>ROOT_CHANNEL_ID</name>
+    </field>
+  </channel-log-table>
+  <pass_batchid>N</pass_batchid>
+  <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>Start</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>80</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1344</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Creating OMOP CDM Schema</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>DROP SCHEMA IF EXISTS omop_cdm5_4 CASCADE;
+
+
+CREATE SCHEMA omop_cdm5_4;
+
+--postgresql CDM DDL Specification for OMOP Common Data Model 5.4
+--postgresql CDM DDL Specification for OMOP Common Data Model 5.4
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.PERSON (
+			person_id integer NOT NULL,
+			gender_concept_id integer NOT NULL,
+			year_of_birth integer NOT NULL,
+			month_of_birth integer NULL,
+			day_of_birth integer NULL,
+			birth_datetime TIMESTAMP NULL,
+			race_concept_id integer NOT NULL,
+			ethnicity_concept_id integer NOT NULL,
+			location_id integer NULL,
+			provider_id integer NULL,
+			care_site_id integer NULL,
+			person_source_value varchar(50) NULL,
+			gender_source_value varchar(50) NULL,
+			gender_source_concept_id integer NULL,
+			race_source_value varchar(50) NULL,
+			race_source_concept_id integer NULL,
+			ethnicity_source_value varchar(50) NULL,
+			ethnicity_source_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.OBSERVATION_PERIOD (
+			observation_period_id integer NOT NULL,
+			person_id integer NOT NULL,
+			observation_period_start_date date NOT NULL,
+			observation_period_end_date date NOT NULL,
+			period_type_concept_id integer NOT NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.VISIT_OCCURRENCE (
+			visit_occurrence_id integer NOT NULL,
+			person_id integer NOT NULL,
+			visit_concept_id integer NOT NULL,
+			visit_start_date date NOT NULL,
+			visit_start_datetime TIMESTAMP NULL,
+			visit_end_date date NOT NULL,
+			visit_end_datetime TIMESTAMP NULL,
+			visit_type_concept_id Integer NOT NULL,
+			provider_id integer NULL,
+			care_site_id integer NULL,
+			visit_source_value varchar(50) NULL,
+			visit_source_concept_id integer NULL,
+			admitted_from_concept_id integer NULL,
+			admitted_from_source_value varchar(50) NULL,
+			discharged_to_concept_id integer NULL,
+			discharged_to_source_value varchar(50) NULL,
+			preceding_visit_occurrence_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.VISIT_DETAIL (
+			visit_detail_id integer NOT NULL,
+			person_id integer NOT NULL,
+			visit_detail_concept_id integer NOT NULL,
+			visit_detail_start_date date NOT NULL,
+			visit_detail_start_datetime TIMESTAMP NULL,
+			visit_detail_end_date date NOT NULL,
+			visit_detail_end_datetime TIMESTAMP NULL,
+			visit_detail_type_concept_id integer NOT NULL,
+			provider_id integer NULL,
+			care_site_id integer NULL,
+			visit_detail_source_value varchar(50) NULL,
+			visit_detail_source_concept_id Integer NULL,
+			admitted_from_concept_id Integer NULL,
+			admitted_from_source_value varchar(50) NULL,
+			discharged_to_source_value varchar(50) NULL,
+			discharged_to_concept_id integer NULL,
+			preceding_visit_detail_id integer NULL,
+			parent_visit_detail_id integer NULL,
+			visit_occurrence_id integer NOT NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONDITION_OCCURRENCE (
+			condition_occurrence_id integer NOT NULL,
+			person_id integer NOT NULL,
+			condition_concept_id integer NOT NULL,
+			condition_start_date date NOT NULL,
+			condition_start_datetime TIMESTAMP NULL,
+			condition_end_date date NULL,
+			condition_end_datetime TIMESTAMP NULL,
+			condition_type_concept_id integer NOT NULL,
+			condition_status_concept_id integer NULL,
+			stop_reason varchar(20) NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			condition_source_value varchar(50) NULL,
+			condition_source_concept_id integer NULL,
+			condition_status_source_value varchar(50) NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DRUG_EXPOSURE (
+			drug_exposure_id integer NOT NULL,
+			person_id integer NOT NULL,
+			drug_concept_id integer NOT NULL,
+			drug_exposure_start_date date NOT NULL,
+			drug_exposure_start_datetime TIMESTAMP NULL,
+			drug_exposure_end_date date NOT NULL,
+			drug_exposure_end_datetime TIMESTAMP NULL,
+			verbatim_end_date date NULL,
+			drug_type_concept_id integer NOT NULL,
+			stop_reason varchar(20) NULL,
+			refills integer NULL,
+			quantity NUMERIC NULL,
+			days_supply integer NULL,
+			sig TEXT NULL,
+			route_concept_id integer NULL,
+			lot_number varchar(50) NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			drug_source_value varchar(50) NULL,
+			drug_source_concept_id integer NULL,
+			route_source_value varchar(50) NULL,
+			dose_unit_source_value varchar(50) NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.PROCEDURE_OCCURRENCE (
+			procedure_occurrence_id integer NOT NULL,
+			person_id integer NOT NULL,
+			procedure_concept_id integer NOT NULL,
+			procedure_date date NOT NULL,
+			procedure_datetime TIMESTAMP NULL,
+			procedure_end_date date NULL,
+			procedure_end_datetime TIMESTAMP NULL,
+			procedure_type_concept_id integer NOT NULL,
+			modifier_concept_id integer NULL,
+			quantity integer NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			procedure_source_value varchar(50) NULL,
+			procedure_source_concept_id integer NULL,
+			modifier_source_value varchar(50) NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DEVICE_EXPOSURE (
+			device_exposure_id integer NOT NULL,
+			person_id integer NOT NULL,
+			device_concept_id integer NOT NULL,
+			device_exposure_start_date date NOT NULL,
+			device_exposure_start_datetime TIMESTAMP NULL,
+			device_exposure_end_date date NULL,
+			device_exposure_end_datetime TIMESTAMP NULL,
+			device_type_concept_id integer NOT NULL,
+			unique_device_id varchar(255) NULL,
+			production_id varchar(255) NULL,
+			quantity integer NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			device_source_value varchar(50) NULL,
+			device_source_concept_id integer NULL,
+			unit_concept_id integer NULL,
+			unit_source_value varchar(50) NULL,
+			unit_source_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.MEASUREMENT (
+			measurement_id integer NOT NULL,
+			person_id integer NOT NULL,
+			measurement_concept_id integer NOT NULL,
+			measurement_date date NOT NULL,
+			measurement_datetime TIMESTAMP NULL,
+			measurement_time varchar(10) NULL,
+			measurement_type_concept_id integer NOT NULL,
+			operator_concept_id integer NULL,
+			value_as_number NUMERIC NULL,
+			value_as_concept_id integer NULL,
+			unit_concept_id integer NULL,
+			range_low NUMERIC NULL,
+			range_high NUMERIC NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			measurement_source_value varchar(50) NULL,
+			measurement_source_concept_id integer NULL,
+			unit_source_value varchar(50) NULL,
+			unit_source_concept_id integer NULL,
+			value_source_value varchar(50) NULL,
+			measurement_event_id bigint NULL,
+			meas_event_field_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.OBSERVATION (
+			observation_id integer NOT NULL,
+			person_id integer NOT NULL,
+			observation_concept_id integer NOT NULL,
+			observation_date date NOT NULL,
+			observation_datetime TIMESTAMP NULL,
+			observation_type_concept_id integer NOT NULL,
+			value_as_number NUMERIC NULL,
+			value_as_string varchar(60) NULL,
+			value_as_concept_id Integer NULL,
+			qualifier_concept_id integer NULL,
+			unit_concept_id integer NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			observation_source_value varchar(50) NULL,
+			observation_source_concept_id integer NULL,
+			unit_source_value varchar(50) NULL,
+			qualifier_source_value varchar(50) NULL,
+			value_source_value varchar(50) NULL,
+			observation_event_id bigint NULL,
+			obs_event_field_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DEATH (
+			person_id integer NOT NULL,
+			death_date date NOT NULL,
+			death_datetime TIMESTAMP NULL,
+			death_type_concept_id integer NULL,
+			cause_concept_id integer NULL,
+			cause_source_value varchar(50) NULL,
+			cause_source_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.NOTE (
+			note_id integer NOT NULL,
+			person_id integer NOT NULL,
+			note_date date NOT NULL,
+			note_datetime TIMESTAMP NULL,
+			note_type_concept_id integer NOT NULL,
+			note_class_concept_id integer NOT NULL,
+			note_title varchar(250) NULL,
+			note_text TEXT NOT NULL,
+			encoding_concept_id integer NOT NULL,
+			language_concept_id integer NOT NULL,
+			provider_id integer NULL,
+			visit_occurrence_id integer NULL,
+			visit_detail_id integer NULL,
+			note_source_value varchar(50) NULL,
+			note_event_id bigint NULL,
+			note_event_field_concept_id integer NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.NOTE_NLP (
+			note_nlp_id integer NOT NULL,
+			note_id integer NOT NULL,
+			section_concept_id integer NULL,
+			snippet varchar(250) NULL,
+			"offset" varchar(50) NULL,
+			lexical_variant varchar(250) NOT NULL,
+			note_nlp_concept_id integer NULL,
+			note_nlp_source_concept_id integer NULL,
+			nlp_system varchar(250) NULL,
+			nlp_date date NOT NULL,
+			nlp_datetime TIMESTAMP NULL,
+			term_exists varchar(1) NULL,
+			term_temporal varchar(50) NULL,
+			term_modifiers varchar(2000) NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.SPECIMEN (
+			specimen_id integer NOT NULL,
+			person_id integer NOT NULL,
+			specimen_concept_id integer NOT NULL,
+			specimen_type_concept_id integer NOT NULL,
+			specimen_date date NOT NULL,
+			specimen_datetime TIMESTAMP NULL,
+			quantity NUMERIC NULL,
+			unit_concept_id integer NULL,
+			anatomic_site_concept_id integer NULL,
+			disease_status_concept_id integer NULL,
+			specimen_source_id varchar(50) NULL,
+			specimen_source_value varchar(50) NULL,
+			unit_source_value varchar(50) NULL,
+			anatomic_site_source_value varchar(50) NULL,
+			disease_status_source_value varchar(50) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.FACT_RELATIONSHIP (
+			domain_concept_id_1 integer NOT NULL,
+			fact_id_1 integer NOT NULL,
+			domain_concept_id_2 integer NOT NULL,
+			fact_id_2 integer NOT NULL,
+			relationship_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.LOCATION (
+			location_id integer NOT NULL,
+			address_1 varchar(50) NULL,
+			address_2 varchar(50) NULL,
+			city varchar(50) NULL,
+			state varchar(2) NULL,
+			zip varchar(9) NULL,
+			county varchar(20) NULL,
+			location_source_value varchar(50) NULL,
+			country_concept_id integer NULL,
+			country_source_value varchar(80) NULL,
+			latitude NUMERIC NULL,
+			longitude NUMERIC NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CARE_SITE (
+			care_site_id integer NOT NULL,
+			care_site_name varchar(255) NULL,
+			place_of_service_concept_id integer NULL,
+			location_id integer NULL,
+			care_site_source_value varchar(50) NULL,
+			place_of_service_source_value varchar(50) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.PROVIDER (
+			provider_id integer NOT NULL,
+			provider_name varchar(255) NULL,
+			npi varchar(20) NULL,
+			dea varchar(20) NULL,
+			specialty_concept_id integer NULL,
+			care_site_id integer NULL,
+			year_of_birth integer NULL,
+			gender_concept_id integer NULL,
+			provider_source_value varchar(50) NULL,
+			specialty_source_value varchar(50) NULL,
+			specialty_source_concept_id integer NULL,
+			gender_source_value varchar(50) NULL,
+			gender_source_concept_id integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.PAYER_PLAN_PERIOD (
+			payer_plan_period_id integer NOT NULL,
+			person_id integer NOT NULL,
+			payer_plan_period_start_date date NOT NULL,
+			payer_plan_period_end_date date NOT NULL,
+			payer_concept_id integer NULL,
+			payer_source_value varchar(50) NULL,
+			payer_source_concept_id integer NULL,
+			plan_concept_id integer NULL,
+			plan_source_value varchar(50) NULL,
+			plan_source_concept_id integer NULL,
+			sponsor_concept_id integer NULL,
+			sponsor_source_value varchar(50) NULL,
+			sponsor_source_concept_id integer NULL,
+			family_source_value varchar(50) NULL,
+			stop_reason_concept_id integer NULL,
+			stop_reason_source_value varchar(50) NULL,
+			stop_reason_source_concept_id integer NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.COST (
+			cost_id integer NOT NULL,
+			cost_event_id integer NOT NULL,
+			cost_domain_id varchar(20) NOT NULL,
+			cost_type_concept_id integer NOT NULL,
+			currency_concept_id integer NULL,
+			total_charge NUMERIC NULL,
+			total_cost NUMERIC NULL,
+			total_paid NUMERIC NULL,
+			paid_by_payer NUMERIC NULL,
+			paid_by_patient NUMERIC NULL,
+			paid_patient_copay NUMERIC NULL,
+			paid_patient_coinsurance NUMERIC NULL,
+			paid_patient_deductible NUMERIC NULL,
+			paid_by_primary NUMERIC NULL,
+			paid_ingredient_cost NUMERIC NULL,
+			paid_dispensing_fee NUMERIC NULL,
+			payer_plan_period_id integer NULL,
+			amount_allowed NUMERIC NULL,
+			revenue_code_concept_id integer NULL,
+			revenue_code_source_value varchar(50) NULL,
+			drg_concept_id integer NULL,
+			drg_source_value varchar(3) NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DRUG_ERA (
+			drug_era_id integer NOT NULL,
+			person_id integer NOT NULL,
+			drug_concept_id integer NOT NULL,
+			drug_era_start_date TIMESTAMP NOT NULL,
+			drug_era_end_date TIMESTAMP NOT NULL,
+			drug_exposure_count integer NULL,
+			gap_days integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DOSE_ERA (
+			dose_era_id integer NOT NULL,
+			person_id integer NOT NULL,
+			drug_concept_id integer NOT NULL,
+			unit_concept_id integer NOT NULL,
+			dose_value NUMERIC NOT NULL,
+			dose_era_start_date TIMESTAMP NOT NULL,
+			dose_era_end_date TIMESTAMP NOT NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONDITION_ERA (
+			condition_era_id integer NOT NULL,
+			person_id integer NOT NULL,
+			condition_concept_id integer NOT NULL,
+			condition_era_start_date TIMESTAMP NOT NULL,
+			condition_era_end_date TIMESTAMP NOT NULL,
+			condition_occurrence_count integer NULL );
+
+--CREATE TABLE (person_id)
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.EPISODE (
+			episode_id bigint NOT NULL,
+			person_id bigint NOT NULL,
+			episode_concept_id integer NOT NULL,
+			episode_start_date date NOT NULL,
+			episode_start_datetime TIMESTAMP NULL,
+			episode_end_date date NULL,
+			episode_end_datetime TIMESTAMP NULL,
+			episode_parent_id bigint NULL,
+			episode_number integer NULL,
+			episode_object_concept_id integer NOT NULL,
+			episode_type_concept_id integer NOT NULL,
+			episode_source_value varchar(50) NULL,
+			episode_source_concept_id integer NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.EPISODE_EVENT (
+			episode_id bigint NOT NULL,
+			event_id bigint NOT NULL,
+			episode_event_field_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.METADATA (
+			metadata_id integer NOT NULL,
+			metadata_concept_id integer NOT NULL,
+			metadata_type_concept_id integer NOT NULL,
+			name varchar(250) NOT NULL,
+			value_as_string varchar(250) NULL,
+			value_as_concept_id integer NULL,
+			value_as_number NUMERIC NULL,
+			metadata_date date NULL,
+			metadata_datetime TIMESTAMP NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CDM_SOURCE (
+			cdm_source_name varchar(255) NOT NULL,
+			cdm_source_abbreviation varchar(25) NOT NULL,
+			cdm_holder varchar(255) NOT NULL,
+			source_description TEXT NULL,
+			source_documentation_reference varchar(255) NULL,
+			cdm_etl_reference varchar(255) NULL,
+			source_release_date date NOT NULL,
+			cdm_release_date date NOT NULL,
+			cdm_version varchar(10) NULL,
+			cdm_version_concept_id integer NOT NULL,
+			vocabulary_version varchar(20) NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONCEPT (
+			concept_id integer NOT NULL,
+			concept_name varchar(255) NOT NULL,
+			domain_id varchar(20) NOT NULL,
+			vocabulary_id varchar(20) NOT NULL,
+			concept_class_id varchar(20) NOT NULL,
+			standard_concept varchar(1) NULL,
+			concept_code varchar(50) NOT NULL,
+			valid_start_date date NOT NULL,
+			valid_end_date date NOT NULL,
+			invalid_reason varchar(1) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.VOCABULARY (
+			vocabulary_id varchar(20) NOT NULL,
+			vocabulary_name varchar(255) NOT NULL,
+			vocabulary_reference varchar(255) NULL,
+			vocabulary_version varchar(255) NULL,
+			vocabulary_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DOMAIN (
+			domain_id varchar(20) NOT NULL,
+			domain_name varchar(255) NOT NULL,
+			domain_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONCEPT_CLASS (
+			concept_class_id varchar(20) NOT NULL,
+			concept_class_name varchar(255) NOT NULL,
+			concept_class_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONCEPT_RELATIONSHIP (
+			concept_id_1 integer NOT NULL,
+			concept_id_2 integer NOT NULL,
+			relationship_id varchar(20) NOT NULL,
+			valid_start_date date NOT NULL,
+			valid_end_date date NOT NULL,
+			invalid_reason varchar(1) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.RELATIONSHIP (
+			relationship_id varchar(20) NOT NULL,
+			relationship_name varchar(255) NOT NULL,
+			is_hierarchical varchar(1) NOT NULL,
+			defines_ancestry varchar(1) NOT NULL,
+			reverse_relationship_id varchar(20) NOT NULL,
+			relationship_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONCEPT_SYNONYM (
+			concept_id integer NOT NULL,
+			concept_synonym_name varchar(1000) NOT NULL,
+			language_concept_id integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.CONCEPT_ANCESTOR (
+			ancestor_concept_id integer NOT NULL,
+			descendant_concept_id integer NOT NULL,
+			min_levels_of_separation integer NOT NULL,
+			max_levels_of_separation integer NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.SOURCE_TO_CONCEPT_MAP (
+			source_code varchar(50) NOT NULL,
+			source_concept_id integer NOT NULL,
+			source_vocabulary_id varchar(20) NOT NULL,
+			source_code_description varchar(255) NULL,
+			target_concept_id integer NOT NULL,
+			target_vocabulary_id varchar(20) NOT NULL,
+			valid_start_date date NOT NULL,
+			valid_end_date date NOT NULL,
+			invalid_reason varchar(1) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.DRUG_STRENGTH (
+			drug_concept_id integer NOT NULL,
+			ingredient_concept_id integer NOT NULL,
+			amount_value NUMERIC NULL,
+			amount_unit_concept_id integer NULL,
+			numerator_value NUMERIC NULL,
+			numerator_unit_concept_id integer NULL,
+			denominator_value NUMERIC NULL,
+			denominator_unit_concept_id integer NULL,
+			box_size integer NULL,
+			valid_start_date date NOT NULL,
+			valid_end_date date NOT NULL,
+			invalid_reason varchar(1) NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.COHORT (
+			cohort_definition_id integer NOT NULL,
+			subject_id integer NOT NULL,
+			cohort_start_date date NOT NULL,
+			cohort_end_date date NOT NULL );
+
+--HINT DISTRIBUTE ON RANDOM
+CREATE TABLE IF NOT EXISTS omop_cdm5_4.COHORT_DEFINITION (
+			cohort_definition_id integer NOT NULL,
+			cohort_definition_name varchar(255) NOT NULL,
+			cohort_definition_description TEXT NULL,
+			definition_type_concept_id integer NOT NULL,
+			cohort_definition_syntax TEXT NULL,
+			subject_concept_id integer NOT NULL,
+			cohort_initiation_date date NULL );</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>postgres-output</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>384</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Demographics</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>\01 Demographics\01 Demographics</jobname>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1040</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Create Staging Tables Schema</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>
+DROP SCHEMA IF EXISTS staging CASCADE;
+
+
+CREATE SCHEMA staging;
+
+
+--CREATE TABLE (provider)
+CREATE TABLE IF NOT EXISTS staging.provider (
+			provider_id integer NOT NULL,
+			provider_name varchar(255) NULL );
+
+
+
+--CREATE TABLE (location)
+CREATE TABLE IF NOT EXISTS staging.location (
+			person_address_id integer not null, 
+			location_id integer not null );
+
+--CREATE TABLE(person)
+CREATE TABLE IF NOT EXISTS staging.person (
+			person_source_value integer not null,
+			person_id integer not null );
+
+--CREATE TABLE(care_site)
+CREATE TABLE IF NOT EXISTS staging.care_site (
+			care_site_id integer not null,
+			care_site_source_value varchar(50) null );</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>postgres-output</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>Start</from>
+      <to>Creating OMOP CDM Schema</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Demographics</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Creating OMOP CDM Schema</from>
+      <to>Create Staging Tables Schema</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Create Staging Tables Schema</from>
+      <to>Demographics</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+  </notepads>
+  <attributes/>
+</job>
