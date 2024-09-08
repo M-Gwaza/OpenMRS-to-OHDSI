@@ -30,6 +30,8 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 ### 1. ETL Pipeline
 
+[The repository](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/tree/main/Data%20Harmonization%20Project/OpenMRS%20Demo%20to%20OMOP%20CDM)
+
 https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
 ### 2. ATLAS Dashboards
@@ -484,6 +486,8 @@ Reading from patient
 ![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20patient.png "patient")
 
 #### ii. ETL Pipeline in Pentaho PDI
+
+[The ETL repository](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/tree/main/Data%20Harmonization%20Project/OpenMRS%20Demo%20to%20OMOP%20CDM)
 
 ##### How to run the ETL
 
