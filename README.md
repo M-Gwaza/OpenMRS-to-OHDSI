@@ -516,7 +516,7 @@ The Extract Transform Load Pipeline has 3 parts;
 
 ![Logical Mappings](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Logical%20Mapping.png "Logical Mapping")
 
-##### Destination Table name: person (OHDSI)
+##### Destination Table name: person of OMOP CDM
 Reading from person (OpenMRS)
 
 ![person](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/person.png "Person")
@@ -529,19 +529,19 @@ Reading from person_address (OpenMRS)
 
  ![person_address](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Person Address")
 
-##### Destination Table name: location (OHDSI)
+##### Destination Table name: location of OMOP CDM
 Reading from person_address (OpenMRS)
 
 ![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Location")
 
-##### Destination  Table name: care_site (OHDSI)
+##### Destination  Table name: care_site of OMOP CDM
 Reading from location (OpenMRS)
 
 ![care_site](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20location%20-%20care_site.png "care_site")
 
-##### Destination Table name: provider (OHDSI)
+##### Destination Table name: provider of OMOP CDM
 
-##### Destination Table name: observation_period (OHDSI)
+##### Destination Table name: observation_period of OMOP CDM
 Reading from obs (OpenMRS)
 
 ![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20obs.png "obs")
