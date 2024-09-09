@@ -25,7 +25,7 @@ The Observational Health Data Sciences and Informatics (or OHDSI, pronounced "Od
 
 OHDSI tools help turn health data into a common format, making it easier for different organizations to work together and study health trends. They also provide useful tools to check data quality, make predictions, and create easy-to-understand reports.
 
-This common format is called the OMOP CDM.  [The Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)](https://www.ohdsi.org/data-standardization/) is a way of organizing health data in a standard format so that different organizations can easily share and analyze it. It helps make sure that data from different sources—like hospitals, clinics, or research studies—can be understood and used in the same way, no matter where it comes from. 
+This common format is called the [OMOP CDM](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html).  The [Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)](https://www.ohdsi.org/data-standardization/) is a way of organizing health data in a standard format so that different organizations can easily share and analyze it. It helps make sure that data from different sources—like hospitals, clinics, or research studies—can be understood and used in the same way, no matter where it comes from. 
 
 Some of the key OHDSI tools include:
 
@@ -511,39 +511,42 @@ The Extract Transform Load Pipeline has 3 parts;
 
    i. Logical Mapping of Tables - using Rabbit-in-a-Hat
 
+* Start with [WhiteRabbit](https://www.ohdsi.org/analytic-tools/whiterabbit-for-etl-design/) to create an OpenMRS tables summary stats
+* Then [Rabbit-In-A-Hat](https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html#rabbit-in-a-hat) for matching the OpenMRS tables to OMOP CDM
+
 ![Logical Mappings](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Logical%20Mapping.png "Logical Mapping")
 
-##### Table name: person
-Reading from person
+##### Destination Table name: person (OHDSI)
+Reading from person (OpenMRS)
 
 ![person](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/person.png "Person")
 
-Reading from location
+Reading from location (OpenMRS)
 
 ![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20location.png "Location")
 
-Reading from person_address
+Reading from person_address (OpenMRS)
 
  ![person_address](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Person Address")
 
-##### Table name: location
-Reading from person_address
+##### Destination Table name: location (OHDSI)
+Reading from person_address (OpenMRS)
 
 ![location](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20person_address.png "Location")
 
-##### Table name: care_site
-Reading from location
+##### Destination  Table name: care_site (OHDSI)
+Reading from location (OpenMRS)
 
 ![care_site](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20location%20-%20care_site.png "care_site")
 
-##### Table name: provider
+##### Destination Table name: provider (OHDSI)
 
-##### Table name: observation_period
-Reading from obs
+##### Destination Table name: observation_period (OHDSI)
+Reading from obs (OpenMRS)
 
 ![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20obs.png "obs")
 
-Reading from patient
+Reading from patient (OpenMRS)
 
 ![obs](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/RabbitInAHat/Reading%20from%20patient.png "patient")
 
@@ -820,6 +823,14 @@ Overview: The Observation Period report focuses on the time span during which da
 
 * Other reports like Death or Visit have no data since the OMOP CDM tables have no data.
 
+### Conclusion
 
+The OpenMRS HIV Patients demographics data was successfully transformed to OMOP CDM and patient-level analysis was conducted. 
+
+### Challenges faced
+
+* Undestanding the OpenMRS is difficult since there alot of tables
+* Undestand the OMOP CDM is also difficult and needs to be looked at properly to make data from different sources gets transformed and loaded to it's appropriate tables
+* The usage of OHDSI tools is also difficult as the tools are Open source and require the exact packages and supporting libraries to be used
 
 
