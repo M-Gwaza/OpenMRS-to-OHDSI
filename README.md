@@ -11,7 +11,7 @@ Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Pa
  	* [OHDSI Tools](https://www.ohdsi.org/software-tools/) (Rabbit-in-a-Hat - For Logical mapping presentation of OpenMRS tables to OMOP CDM Format tables on how the ETL pipeline will be created, ATLAS - For Visualizing patient-level analysis conducted on OpenMRS data in form of OMOP CDM)
 
 ## Introduction
-**OpenMRS**, an open-source electronic medical record system designed for resource-constrained environments, was developed collaboratively by a global community of developers, healthcare professionals, and organizations including Partners In Health and the Regenstrief Institute. It aims to enhance healthcare delivery by providing a customizable platform for managing patient health information. Effective for local data management, but lacks standardization for broader research and interoperability.
+[OpenMRS](https://openmrs.org/), an open-source electronic medical record system designed for resource-constrained environments, was developed collaboratively by a global community of developers, healthcare professionals, and organizations including Partners In Health and the Regenstrief Institute. It aims to enhance healthcare delivery by providing a customizable platform for managing patient health information. Effective for local data management, but lacks standardization for broader research and interoperability.
 
 This is where the Observational Health Data Sciences and Informatics (OHDSI) community comes in. OHDSI focuses on improving health outcomes through large-scale observational studies by utilizing The Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM). The OMOP CDM provides a standardized format for harmonizing diverse healthcare data, enabling consistent and reproducible research.
 
@@ -19,17 +19,13 @@ Transforming OpenMRS data into the OMOP CDM format is crucial for achieving inte
 
 **Keywords** : OpenMRS, OMOP CDM, OHDSI
 
-## Understanding the Terminologies
-
-1. OpenMRS
-
-2. OHDSI
+## Understanding OHDSI
 
 The Observational Health Data Sciences and Informatics (or OHDSI, pronounced "Odyssey") program is a multi-stakeholder, interdisciplinary collaborative to bring out the value of health data through large-scale analytics. All our solutions are open-source. [OHDSI](https://ohdsi.org/)
 
 OHDSI tools help turn health data into a common format, making it easier for different organizations to work together and study health trends. They also provide useful tools to check data quality, make predictions, and create easy-to-understand reports.
 
-This common format is called the OMOP CDM.
+This common format is called the OMOP CDM.  [The Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)](https://www.ohdsi.org/data-standardization/) is a way of organizing health data in a standard format so that different organizations can easily share and analyze it. It helps make sure that data from different sources—like hospitals, clinics, or research studies—can be understood and used in the same way, no matter where it comes from. 
 
 Some of the key OHDSI tools include:
 
@@ -47,14 +43,6 @@ Some of the key OHDSI tools include:
 
 7. **Rabbit-in-a-Hat**: A visual tool that assists in designing the ETL process. It lets users visually map source data fields to the OMOP CDM structure, making data transformation easier.
 
-
-
-
-3. OMOP CDM
-
-The OMOP Common Data Model (CDM) is a way of organizing health data in a standard format so that different organizations can easily share and analyze it. It helps make sure that data from different sources—like hospitals, clinics, or research studies—can be understood and used in the same way, no matter where it comes from.
-
-To read more about it, visit the [LINK]()
 ## Study Questions
 1. What is the structure and format of the source data being the OpenMRS and the residing HIV Patients data?
 2. What is the structure of the data destination, that is, the OMOP Common Data Model?
@@ -102,6 +90,39 @@ CREATE SCHEMA demo_data_2_2_1_openmrs ;
 
   
 ### 2. Exploratory Data Analysis
+
+For the OMOP CDM, firstly understand the data model:
+* [OMOP CDM](https://ohdsi.github.io/CommonDataModel/cdm54.html)
+* NOTE: The project uses OMOP CDM version 5.4 are it is the second to the latest 6.0 and supports all the OHDSI tools unlike  version 6.0.
+
+
+And for OpenMRS model:
+* [OpenMRS Information Model](https://guide.openmrs.org/getting-started/openmrs-information-model/)
+* [OpenMRS ERD](https://openmrs.atlassian.net/wiki/spaces/docs/pages/25477157/Data+Model)
+
+![OpenMRS Data Model](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/openmrs_data_model_1.9.0.png "OpenMRS ERD")
+
+As a summary, the Tables will be divided into:
+
+1. Transaction Tables
+
+   1. encounter: Records interactions between patients and healthcare providers.
+   2. observation: Stores data collected during encounters, such as test results and clinical notes.
+   3. order: Manages orders for tests, medications, and other interventions made by healthcare providers.
+   4. visit: Tracks patient visits, including details about the timing and nature of the visit.
+
+2. Reference Data Tables
+
+   1. concept: Contains medical concepts like diagnoses, symptoms, and procedures.
+   2. person: Stores demographic information about individuals, including both patients and healthcare workers.
+   3. patient: Links to the person table and includes additional details specific to patients.
+   4. location: Represents physical or organizational locations where healthcare services are provided.
+   5. provider: Contains information about healthcare providers, such as doctors and nurses.
+   6. user: Stores information about system users, including their usernames and roles.
+
+* NOTE: The OpenMRS has alot of tables from patients demographics information to medication prescriptions, conditions, symptoms and results. But for this project, the focus will only be about Patients' demographics.
+
+_______
 
 #### The SQL queres are used to understand Demographics data for Patients in OpenMRS to be used for the project
 
