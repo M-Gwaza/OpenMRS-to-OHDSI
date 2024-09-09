@@ -13,10 +13,48 @@ Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Pa
 ## Introduction
 **OpenMRS**, an open-source electronic medical record system designed for resource-constrained environments, was developed collaboratively by a global community of developers, healthcare professionals, and organizations including Partners In Health and the Regenstrief Institute. It aims to enhance healthcare delivery by providing a customizable platform for managing patient health information. Effective for local data management, but lacks standardization for broader research and interoperability.
 
-This is where the Observational Health Data Sciences and Informatics (OHDSI) community comes in. OHDSI focuses on improving health outcomes through large-scale observational studies by utilizing the OMOP Common Data Model (CDM). The OMOP CDM provides a standardized format for harmonizing diverse healthcare data, enabling consistent and reproducible research.
+This is where the Observational Health Data Sciences and Informatics (OHDSI) community comes in. OHDSI focuses on improving health outcomes through large-scale observational studies by utilizing The Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM). The OMOP CDM provides a standardized format for harmonizing diverse healthcare data, enabling consistent and reproducible research.
 
 Transforming OpenMRS data into the OMOP CDM format is crucial for achieving interoperability, allowing data to be integrated, analyzed, and visualized using OHDSI tools like ATLAS. This process not only enhances the utility of the data but also supports advanced analytics, leading to better patient care and more informed decision-making in healthcare.
 
+**Keywords** : OpenMRS, OMOP CDM, OHDSI
+
+## Understanding the Terminologies
+
+1. OpenMRS
+
+2. OHDSI
+
+The Observational Health Data Sciences and Informatics (or OHDSI, pronounced "Odyssey") program is a multi-stakeholder, interdisciplinary collaborative to bring out the value of health data through large-scale analytics. All our solutions are open-source. [OHDSI](https://ohdsi.org/)
+
+OHDSI tools help turn health data into a common format, making it easier for different organizations to work together and study health trends. They also provide useful tools to check data quality, make predictions, and create easy-to-understand reports.
+
+This common format is called the OMOP CDM.
+
+Some of the key OHDSI tools include:
+
+1. **ATLAS**: A web-based platform for analyzing and visualizing patient data. It allows you to create *cohorts* (groups of patients with shared characteristics), run epidemiological studies, and generate insights through data visualization.
+  
+2. **ACHILLES**: A tool that provides automated data quality checks and summarizes patient data. It’s written in R and runs SQL scripts to generate high-level summaries of your dataset across various domains, ensuring data completeness and consistency.
+
+3. **Data Quality Dashboard (DQD)**: A more detailed tool for assessing data quality, the DQD also uses R and SQL queries to check for issues like missing or inconsistent data. It provides a comprehensive report on the health of your data.
+
+4. **ATHENA**: A vocabulary browser that gives access to standardized medical terminologies, allowing you to search, browse, and download vocabularies needed for data standardization in OMOP CDM.
+
+5. **WebAPI**: This acts as the backend infrastructure for OHDSI tools, enabling them to interact with your standardized data. WebAPI supports ATLAS by facilitating the sharing of cohorts, studies, and results across institutions.
+
+6. **WhiteRabbit**: A tool that scans your source data, providing an overview of its structure and contents, which helps in planning the Extract, Transform, Load (ETL) process to convert your data into OMOP format.
+
+7. **Rabbit-in-a-Hat**: A visual tool that assists in designing the ETL process. It lets users visually map source data fields to the OMOP CDM structure, making data transformation easier.
+
+
+
+
+3. OMOP CDM
+
+The OMOP Common Data Model (CDM) is a way of organizing health data in a standard format so that different organizations can easily share and analyze it. It helps make sure that data from different sources—like hospitals, clinics, or research studies—can be understood and used in the same way, no matter where it comes from.
+
+To read more about it, visit the [LINK]()
 ## Study Questions
 1. What is the structure and format of the source data being the OpenMRS and the residing HIV Patients data?
 2. What is the structure of the data destination, that is, the OMOP Common Data Model?
