@@ -23,34 +23,6 @@ cdmDatabaseSchema <- "cdm" # the fully qualified database schema name of the CDM
 resultsDatabaseSchema <- "cdm" 
 
 
-# 
-# # Example: Connect to the database
-# conn <- connect(connectionDetails)
-# 
-# 
-# # Example: Test query (adjust depending on your database type)
-# query <- "SELECT * FROM information_schema.tables LIMIT 5;"  # This works in many databases like PostgreSQL or MySQL
-# 
-# # Execute the query
-# testResult <- DatabaseConnector::querySql(conn, query)
-# 
-# # View the results
-# print(testResult)
-# 
-# 
-# 
-# # Example: Test query (adjust depending on your database type)
-# query <- "DROP TABLE IF EXISTS omop_cdm5_4.dqdashboard_results"  # This works in many databases like PostgreSQL or MySQL
-# 
-# # Execute the query using executeSql instead of querySql
-# DatabaseConnector::executeSql(conn, query)
-# 
-# 
-# # Close the connection
-# dbDisconnect(conn)
-
-
-
 cdmSourceName <- "omop_cdm5_4" # a human readable name for your CDM source
 cdmVersion <- "5.4" # the CDM version you are targetting. Currently supports 5.2, 5.3, and 5.4
 
