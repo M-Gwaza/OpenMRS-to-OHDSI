@@ -63,7 +63,11 @@ Some of the key OHDSI tools include:
 
 https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
 
-### 2. ATLAS Dashboards
+### 2. Data Quality Dashboard
+
+https://github.com/user-attachments/assets/d60559b9-7b41-47d3-b803-56355b877307
+
+### 3. ATLAS Dashboards
 
 https://github.com/user-attachments/assets/2b2980da-6f3e-440f-8368-a0bcdbce909b
 
@@ -686,7 +690,31 @@ What to do for the ETL to run
 
 ### 4. Data Quality Check
 
-#### The SQL queres are used to check the Quality of the data in comparison with the Source data
+The R script run:
+
+[DQD](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/DQD.R)
+
+The sources of the tool on how to use it:
+
+* https://ohdsi.github.io/DataQualityDashboard/ 
+
+* https://ohdsi.github.io/DataQualityDashboard/articles/DataQualityDashboard.html 
+
+This was done in 2 ways:
+
+* Using an OHDSI Tool called Data Quality Dashboard
+* Manually written scripts to check the results data against the source data.
+
+#### a) Data Quality Dashboard
+
+The **OHDSI Data Quality Dashboard (DQD)** helps ensure healthcare data in the OMOP CDM is clean and reliable by running automated checks. Here’s how it works:
+
+- **Automated Checks**: It uses **R and SQL scripts** to run tests on the data, checking for accuracy, completeness, and consistency.
+- **Data Type Validation**: Ensures that the data types (like dates or numbers) are stored correctly, and nothing is out of place.
+- **Concept Matching**: Verifies that medical terms and concepts (like diagnoses or treatments) are aligned with OMOP's standardized vocabularies.
+- **Missing Data**: Flags issues like patients who have healthcare visits but are missing an **observation period**, so you know where data needs fixing.
+
+#### b) The SQL queres are used to check the Quality of the data in comparison with the Source data
 
 > Number of People in OMOP CDM
 
