@@ -10,6 +10,27 @@ Standardizing OpenMRS HIV Patient Data to OMOP CDM for Enhanced Analytics and Pa
  	* Pentaho PDI for data engineering - ETL Pipeline development
  	* [OHDSI Tools](https://www.ohdsi.org/software-tools/) (Rabbit-in-a-Hat - For Logical mapping presentation of OpenMRS tables to OMOP CDM Format tables on how the ETL pipeline will be created, ATLAS - For Visualizing patient-level analysis conducted on OpenMRS data in form of OMOP CDM)
 
+## Activities done
+
+![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
+
+## Results and Outcomes
+
+### 1. ETL Pipeline
+
+[The repository](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/tree/main/Data%20Harmonization%20Project/OpenMRS%20Demo%20to%20OMOP%20CDM)
+
+https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
+
+### 2. Data Quality Dashboard
+
+https://github.com/user-attachments/assets/d60559b9-7b41-47d3-b803-56355b877307
+
+### 3. ATLAS Dashboards
+
+https://github.com/user-attachments/assets/2b2980da-6f3e-440f-8368-a0bcdbce909b
+
+
 ## Introduction
 [OpenMRS](https://openmrs.org/), an open-source electronic medical record system designed for resource-constrained environments, was developed collaboratively by a global community of developers, healthcare professionals, and organizations including Partners In Health and the Regenstrief Institute. It aims to enhance healthcare delivery by providing a customizable platform for managing patient health information. Effective for local data management, but lacks standardization for broader research and interoperability.
 
@@ -49,27 +70,6 @@ Some of the key OHDSI tools include:
 3. How exactly will data be extracted, loaded and transformed from source to destination ?
 4. How will the data be checked to ensure that the destination data matches the source?
 5. Finally how will the results be prepared ready for different stakeholders ?
-
-## Activities done
-
-![Roadmap](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/blob/main/Data%20Harmonization%20Project/Images/Activities.png "Roadmap")
-
-
-## Results and Outcomes
-
-### 1. ETL Pipeline
-
-[The repository](https://github.com/M-Gwaza/OpenMRS-to-OHDSI/tree/main/Data%20Harmonization%20Project/OpenMRS%20Demo%20to%20OMOP%20CDM)
-
-https://github.com/user-attachments/assets/6975999c-6ca8-414b-b3f9-b2e7cba08306
-
-### 2. Data Quality Dashboard
-
-https://github.com/user-attachments/assets/d60559b9-7b41-47d3-b803-56355b877307
-
-### 3. ATLAS Dashboards
-
-https://github.com/user-attachments/assets/2b2980da-6f3e-440f-8368-a0bcdbce909b
 
 ## All the steps done in detail
 
